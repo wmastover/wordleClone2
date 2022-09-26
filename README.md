@@ -7,7 +7,7 @@ application map:
 
         state contains word and rows
 
-        submitWord = () => {
+        const submitWord = () => {
 
             const value = input.value
 
@@ -20,6 +20,13 @@ application map:
                 } else { color = grey}
                 
             }
+
+
+            // this function should return an arrary of length 5, of objects :
+            [{
+                color: string
+                letter: string
+            }]
         }
 
 
