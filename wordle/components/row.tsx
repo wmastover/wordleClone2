@@ -1,24 +1,26 @@
 import React from "react"
 import {View, Text, StyleSheet} from "react-native"
+import { row } from "../type/data"
 
-export const Row = () => {
+export const Row = ({row}: {row:row}) => {
 
+    console.log(row)
     return(
-        <View style={styles.container}>
-            <View style={styles.subContainer}>
-                <Text> letter 1</Text>
+        <View style={styles.row}>
+            <View style={{backgroundColor: row[0]?.color, ...styles.rowItem}}>
+                <Text style={styles.text}>{row[0]?.letter}</Text>
             </View>
-            <View style={styles.subContainer}>
-                <Text> letter 2</Text>
+            <View style={{backgroundColor: row[1]?.color, ...styles.rowItem}}>
+                <Text style={styles.text}>{row[1]?.letter}</Text>
             </View>
-            <View style={styles.subContainer}>
-                <Text> letter 3</Text>
+            <View style={{backgroundColor: row[2]?.color, ...styles.rowItem}}>
+                <Text style={styles.text}>{row[2]?.letter}</Text>
             </View>
-            <View style={styles.subContainer}>
-                <Text> letter 4</Text>
+            <View style={{backgroundColor: row[3]?.color, ...styles.rowItem}}>
+                <Text style={styles.text}>{row[3]?.letter}</Text>
             </View>
-            <View style={styles.subContainer}>
-                <Text> letter 5</Text>
+            <View style={{backgroundColor: row[4]?.color, ...styles.rowItem}}> 
+                <Text style={styles.text}>{row[4]?.letter}</Text>
             </View>
         </View>
         
@@ -27,22 +29,31 @@ export const Row = () => {
 
 
 const styles = StyleSheet.create({
-    container: {
-        height: 100,
+    row: {
+        marginBottom: 10,
+        marginTop: 10,
+        borderRadius: 10, 
         flexDirection: "row",
         backgroundColor: 'grey',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
       },
 
-    subContainer: {
+    rowItem: {
         flex: 1,
         flexDirection: "row",
-        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,
-        padding: 10,
-        margin: 10,
+        padding: "3%",
+        marginVertical: "1%",
+        marginHorizontal: "1%",
+
       },
+
+    text: {
+        fontWeight: "bold",
+        fontSize: 30
+
+    }
 })
