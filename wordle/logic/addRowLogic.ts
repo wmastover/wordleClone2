@@ -1,4 +1,7 @@
+import { RootState, store } from "../redux/reduxStore"
 import { setRowsFunction, row, rowItem, letter} from "../type/data"
+import { addRow as addrow2 } from "../redux/rowsSlice"
+import { Provider, useSelector } from 'react-redux';
 
 const getColor = (wordle: Array<string>, char:string, charIndex:number):string => {
     
@@ -13,11 +16,9 @@ const getColor = (wordle: Array<string>, char:string, charIndex:number):string =
 }
 
 
-
-
-export const addRow = (wordle: Array<string>, row:string, setRows:setRowsFunction, rows:row[]) => {
+export const addRow = (wordle: Array<string>, row:string, rows:row[]) => {
     
-    const copyRows = rows as row[]
+    console.log("add row wordle", wordle)
     // object containing rowItems
     const rowObject = [] as row
  
@@ -39,9 +40,8 @@ export const addRow = (wordle: Array<string>, row:string, setRows:setRowsFunctio
 
         rowObject.push(rowItem)
     }
-    // this doesnt work syntax is important otherwise useEffect doesnt run
-
-    setRows([...copyRows, rowObject] )
+    
+    store.dispatch(addrow2(rowObject))
 
     if (winCounter === 5) { alert("winner, winner, chicken diner")}
 }

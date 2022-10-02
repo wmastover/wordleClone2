@@ -15,6 +15,7 @@ export type row = Array<rowItem>
 
 export interface ButtonProps {
     addRowFunc: (row:string) => void;
+    changeWordleFunc: () => void;
   }
   
 export type setRowsFunction =  (row: any) => void

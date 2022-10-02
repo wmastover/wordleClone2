@@ -30,8 +30,8 @@ export const Row = ({row}: {row:row}) => {
 
 const styles = StyleSheet.create({
     row: {
-        marginBottom: 10,
-        marginTop: 10,
+        marginVertical: "1%",
+        marginHorizontal: "10%",
         borderRadius: 10, 
         flexDirection: "row",
         backgroundColor: 'grey',
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,
-        padding: "3%",
+        paddingHorizontal: "1%",
+        paddingVertical: "1%",
         marginVertical: "1%",
         marginHorizontal: "1%",
 

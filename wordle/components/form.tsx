@@ -1,10 +1,9 @@
 import React from 'react';
-import { FlatList, StyleSheet, View, TextInput, Button, Pressable} from 'react-native';
+import { StyleSheet, View, TextInput, Pressable, Text} from 'react-native';
 import { useState} from "react"
 import { ButtonProps} from "../type/data"
- 
 
-export const Form = ({addRowFunc}: ButtonProps) => {
+export const Form = ({addRowFunc, changeWordleFunc}: ButtonProps) => {
 
     const [text, setText] = useState("")
  
@@ -27,9 +26,19 @@ export const Form = ({addRowFunc}: ButtonProps) => {
                 onPress={() => {if (text.length ===5 ) {
                     addRowFunc(text)} else {
                         alert("must be 5 letters long")
-                    }}}
-                >
-                    <View> Submit </View>
+                    }}}>
+                    <View> 
+                        <Text>submit</Text>
+                    </View>
+                </Pressable>
+            </View>
+
+            <View style={styles.button}>
+                <Pressable
+                onPress={() => {changeWordleFunc()}}>
+                    <View> 
+                        <Text>Change Wordle</Text>
+                    </View>
                 </Pressable>
             </View>
         </View>
