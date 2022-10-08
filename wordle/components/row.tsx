@@ -1,10 +1,20 @@
 import React from "react"
 import {View, Text, StyleSheet} from "react-native"
-import { row } from "../type/data"
+import { row, rowItem } from "../type/data"
 
-export const Row = ({row}: {row:row}) => {
+export const Row = ({row}: {row?:row}) => {
 
     console.log(row)
+    const emptyRowItem = {
+        color: "white",
+        letter: " "
+    } as rowItem
+
+    if (row === undefined){
+        row = [emptyRowItem,emptyRowItem, emptyRowItem, emptyRowItem, emptyRowItem,
+            emptyRowItem ]
+    }
+
     return(
         <View style={styles.row}>
             <View style={{backgroundColor: row[0]?.color, ...styles.rowItem}}>

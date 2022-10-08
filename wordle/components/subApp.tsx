@@ -4,19 +4,18 @@ import { Row } from "../components/row"
 import { Form } from '../components/form';
 import { addRow } from "../logic/addRowLogic"
 import { changeWordle } from '../logic/changeWordle';
-import { Provider, useSelector } from 'react-redux';
-import {store, RootState} from "../redux/reduxStore"
+import {  useSelector } from 'react-redux';
+import { RootState} from "../redux/reduxStore"
 
 
 export const SubApp = () =>  {
     // the word you try to guess
-    const wordle = useSelector((state:RootState) => state.wordle.value[0])
+    const wordle = useSelector((state:RootState) => state.wordle.value) 
 
     const rows = useSelector((state:RootState) => state.rows.value)
 
     return (
     //contains page
-    <Provider store={store}>
         <View style={styles.container}>
             {/* left collumn */}
             <View style={styles.edge}>
@@ -25,13 +24,12 @@ export const SubApp = () =>  {
             <View style={styles.center}>
                 {/* probs add header here */}
                 <View style={styles.flatList}>
-                <FlatList
-                data={rows}
-                renderItem={({item}) => {
-                    return(
-                    <Row row={item}/>
-                    )
-                }}/>
+                  <Row row={rows[0]}></Row>
+                  <Row row={rows[1]}></Row>
+                  <Row row={rows[2]}></Row>
+                  <Row row={rows[3]}></Row>
+                  <Row row={rows[4]}></Row>
+                  <Row row={rows[5]}></Row>
                 </View>
                 <View style={styles.form}>
                 <Form
@@ -44,7 +42,6 @@ export const SubApp = () =>  {
             <View style={styles.edge}>
             </View>
         </View>
-    </Provider>
     );
 }
 

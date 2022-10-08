@@ -4,7 +4,8 @@ import { addRow as addrow2 } from "../redux/rowsSlice"
 import { Provider, useSelector } from 'react-redux';
 
 const getColor = (wordle: Array<string>, char:string, charIndex:number):string => {
-    
+    console.log(wordle)
+    console.log(wordle[charIndex], char)
     if (wordle[charIndex] === char) {
         return("green")
     } else if ( wordle.includes(char)) {
