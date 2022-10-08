@@ -14,7 +14,7 @@ export const wordleSlice = createSlice({
         newWordle: (state, action) => {
             //can write non immutable logic in createSlice, exception to rule
             
-            state.value = [action.payload]
+            state.value = action.payload
         },
 
     }
